@@ -1,0 +1,16 @@
+<h1>Employee Show Page</h1>
+
+<h2><%= @employee.name %></h2>
+<p>Department: <%= @employee.department_name %></p>
+<ol>
+  <% @ordered_employee_tickets.each do |ticket| %>
+    <li>
+    Subject: <%= ticket.subject %> <br>
+    Age: <%= ticket.age %>
+    </li>
+  <% end %>
+</ol>
+<section id='oldest-ticket'>
+  <h4>Oldest Ticket</h4>
+  <p>Subject: <%= @oldest_ticket.subject %></p>
+</section>

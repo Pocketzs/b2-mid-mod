@@ -18,7 +18,7 @@ RSpec.describe 'employee show page' do
       end
       it "I see the employee's name, department, and a list of all of their tickets" do
         expect(page).to have_content(@employee_1.name)
-        expect(page).to have_content(@department_1)
+        expect(page).to have_content(@department_1.name)
         expect(page).to have_content(@ticket_1.subject)
         expect(page).to have_content(@ticket_2.subject)
         expect(page).to have_content(@ticket_3.subject)
@@ -34,6 +34,7 @@ RSpec.describe 'employee show page' do
           expect(page).to have_content(@ticket_3.subject)
           expect(page).to_not have_content(@ticket_1.subject)
           expect(page).to_not have_content(@ticket_2.subject)
+          save_and_open_page
         end
       end
     end
