@@ -31,7 +31,18 @@ RSpec.describe "departments index page" do
 
       describe "And underneath each department" do
         it "I can see the names of all of its employees" do
-          
+          within("#department_#{@department_1.id}") do
+            expect(page).to have_content("#{@employee_1.name}")
+            expect(page).to have_content("#{@employee_2.name}")
+            expect(page).to have_content("#{@employee_3.name}")
+            expect(page).to_not have_content("#{@employee_4.name}")
+          end
+          within("#department_#{@department_2.id}") do
+            expect(page).to_not have_content("#{@employee_1.name}")
+            expect(page).to_not have_content("#{@employee_2.name}")
+            expect(page).to_not have_content("#{@employee_3.name}")
+            expect(page).to have_content("#{@employee_4.name}")
+          end
         end
       end
     end
